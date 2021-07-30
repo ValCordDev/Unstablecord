@@ -82,8 +82,8 @@ client.on('message', message => {
 		.setColor(0xf5f5dc);
 
 	if (command === 'avatar') command = 'av';
-  if (command === 'colour') command = 'color';
-  if (command === 'userinfo') command = 'whois';
+	if (command === 'colour') command = 'color';
+	if (command === 'userinfo') command = 'whois';
  
 	if (client.commands.has(command)) {
 		client.commands.get(command).execute(message, args);
