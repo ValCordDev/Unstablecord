@@ -4,8 +4,8 @@ const chooseArr = ["🗻", "📰", "✂"];
 
 module.exports = {
     name: "rps",
-    run: async (client, message, args) => {
-        const author = message.author
+    execute: async (message, args) => {
+      const author = message.author
 
         const embed = new RichEmbed()
             .setColor(0xF5F5DC)
