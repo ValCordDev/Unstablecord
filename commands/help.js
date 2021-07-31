@@ -1,5 +1,6 @@
 
 const { Client, MessageEmbed, Collection } = require('discord.js');
+const e = require('express');
 
 module.exports = {
   name:'help',
@@ -25,12 +26,18 @@ module.exports = {
       embed.addField("``#ping``", "Gets the ping of the server and bot.", false);
       embed.addField("``#afk``", "Set's an AFK message for the user.", false);
       embed.addField("``#color / #colour``", "Displays the Color That this bot is using across all of the commands.", false);
-      embed.addField("``#whois / #userinfo <@user>``", "Displays Info about user pinged or author.")
-      embed.addField("``#serverinfo``", "Displays Info about this server.")
-      embed.addField("``#f <@user>``", "A way to say RIP to a user")
-      
+      embed.addField("``#whois / #userinfo <@user>``", "Displays Info about user pinged or author.");
+      embed.addField("``#serverinfo``", "Displays Info about this server.");
+      embed.addField("``#f <@user>``", "A way to say RIP to a user");
     }
-    else if (helpMsg === "other"){
+    
+    else if(helpMsg === "games"){
+      embed.setTitle("Game commands");
+      embed.addField("``#rps``", "This will start a game of Rock, Paper, Scissors");
+      embed.addField("More To Come soon! :D", "Stay Tuned :D");
+    }
+      
+    else if(helpMsg === "other"){
       embed.setTitle("Other Commands");
       embed.addField("``#suggest <Suggestion>``", "Logs a suggestion to the server.", false);
       embed.addField("``#bug <bug>``", "Logs a bug to the server.", false);
@@ -74,7 +81,8 @@ module.exports = {
       embed.addField("Other", "``#help other``", true);
       embed.addField("Levels", "``#help levels``", true);
       embed.addField("Memes", "``#help memes``", true);
-      embed.addField("Misc", "``#help Misc``", true);
+      embed.addField("Misc", "``#help misc``", true);
+      embed.addField("Games", "``#help games``", true);
     }
     message.channel.send(embed);
   }
