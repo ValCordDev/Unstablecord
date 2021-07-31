@@ -1,13 +1,13 @@
-const { RichEmbed } = require("discord.js");
-const { promptMessage } = require("./functions.js");
+const { MessageEmbed } = require("discord.js");
+const { promptMessage } = require("../functions.js");
 const chooseArr = ["🗻", "📰", "✂"];
 
 module.exports = {
     name: "rps",
     execute: async (message, args) => {
-      const author = message.author
+        const author = message.author;
 
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
             .setColor(0xF5F5DC)
             .setDescription("Add a reaction to one of these emojis to play the game!");
         const m = await message.channel.send(embed);
@@ -16,7 +16,7 @@ module.exports = {
         const botChoice = chooseArr[Math.floor(Math.random() * chooseArr.length)];
 
         const result = await getResult(reacted, botChoice);
-        await m.clearReactions();
+        await m.reactions.removeAll();
 
         embed
             .setDescription("")
