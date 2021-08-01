@@ -5,8 +5,6 @@ const chooseArr = ["🗻", "📰", "✂"];
 module.exports = {
     name: "rps",
     execute: async (message, args) => {
-        const author = message.author;
-
         const embed = new MessageEmbed()
             .setColor(0xF5F5DC)
             .setDescription("Add a reaction to one of these emojis to play the game!");

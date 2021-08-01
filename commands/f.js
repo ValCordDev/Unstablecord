@@ -1,5 +1,4 @@
-const { Client, MessageEmbed, Collection } = require('discord.js');
-const prefix = '#';
+const {MessageEmbed } = require('discord.js');
 
 module.exports = {
   name:'f',
@@ -16,5 +15,3 @@ module.exports = {
     });
   }
 }
-
-//🇫

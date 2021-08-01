@@ -1,7 +1,3 @@
-
-const { Client, MessageEmbed, Collection } = require('discord.js');
-const prefix = '#';
-
 module.exports = {
   name:'kick',
   execute(message, args){

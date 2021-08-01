@@ -1,22 +1,19 @@
-const { Client, MessageEmbed, Collection } = require('discord.js');
-const prefix = '#';
-
+const { MessageEmbed } = require('discord.js');
 
 module.exports ={
   name: 'suggest',
-  execute(message, args, cmd, client, discord){
+  execute(message, args){
     const channel = message.guild.channels.cache.find(c => c.name === '🔗suggestions🔗');
     if(!channel) return message.channel.send('suggestions channel does not exist!');
 
     let messageArgs = args.join(' ');
     const embed = new MessageEmbed();
-    const msgTime = Date.now();
 
     embed
-    .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-    .setTimestamp(Date.now())
-    .setColor(0xF5F5DC)
-    .setDescription(messageArgs);
+      .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+      .setTimestamp(Date.now())
+      .setColor(0xF5F5DC)
+      .setDescription(messageArgs);
 
     channel.send(embed).then((msg) =>{
       msg.react('👍');

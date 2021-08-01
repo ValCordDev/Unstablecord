@@ -1,11 +1,9 @@
 
-const { Client, MessageEmbed, Collection } = require('discord.js');
-const prefix = '#';
+const {MessageEmbed } = require('discord.js');
 
 module.exports = {
   name:'rules',
   execute(message, args){
-    const msgTime = Date.now();
     const embed = new MessageEmbed()
       .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
       .setTimestamp(Date.now())

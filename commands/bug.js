@@ -1,16 +1,13 @@
-const { Client, MessageEmbed, Collection } = require('discord.js');
-const prefix = '#';
-
+const {MessageEmbed } = require('discord.js');
 
 module.exports ={
   name: 'bug',
-  execute(message, args, cmd, client, discord){
+  execute(message, args){
     const channel = message.guild.channels.cache.find(c => c.name === '🚨bug-reports🚨');
     if(!channel) return message.channel.send('bug channel does not exist!');
 
     let messageArgs = args.join(' ');
     const embed = new MessageEmbed();
-    const msgTime = Date.now();
 
     embed
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))

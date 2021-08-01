@@ -1,6 +1,3 @@
-
-const { Client, MessageEmbed, Collection } = require('discord.js');
-
 module.exports = {
   name:'purge',
   description: "purges amount of messages",

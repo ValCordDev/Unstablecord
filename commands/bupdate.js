@@ -1,10 +1,8 @@
-const { Client, MessageEmbed, Collection } = require('discord.js');
-const prefix = '#';
-
+const {MessageEmbed } = require('discord.js');
 
 module.exports ={
   name: 'bupdate',
-  execute(message, args, cmd, client, discord){
+  execute(message, args){
     if(!message.member.hasPermission("ADMINISTRATOR")){
       return message.reply("You don't have perms");
     }
@@ -13,7 +11,6 @@ module.exports ={
 
     let messageArgs = args.join(' ');
     const embed = new MessageEmbed();
-    const msgTime = Date.now();
 
     embed
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
