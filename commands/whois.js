@@ -10,13 +10,12 @@ module.exports = {
     const embed = new MessageEmbed()
     .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
     .setColor(0xF5F5DC)
-    .addField('Discord Name', `${user.username}`, true)
-    .addField('Tag', `${user.discriminator}`, true)
-    .addField('Joined Server Date', `${member.joinedAt}`, true)
-    .addField('Account Creation Date', `${user.createdAt}`, true)
+    .addField('Discord Name', `${user.username}`, false)
+    .addField('Tag', `${user.discriminator}`, false)
+    .addField('Joined Server Date', `${member.joinedAt}`, false)
+    .addField('Account Creation Date', `${user.createdAt}`, false)
     .addField('Is bot?', `${user.bot}`, true)
-    .addField('ID', `${user.id}`, true)
-    .addField('FW', `${user.lastMessage}`, true)
+    .addField('ID', `${user.id}`, false)
     .setThumbnail(user.displayAvatarURL({dynamic: true}))
   message.channel.send(embed);
   }
