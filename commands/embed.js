@@ -1,4 +1,5 @@
 const { MessageEmbed } = require('discord.js');
+const prefix = '#';
 
 module.exports = {
   name:'embed',

@@ -27,11 +27,15 @@ module.exports = {
       embed.addField("``#whois / #userinfo <@user>``", "Displays Info about user pinged or author.");
       embed.addField("``#serverinfo``", "Displays Info about this server.");
       embed.addField("``#f <@user>``", "A way to say RIP to a user");
+      embed.addField("``#meme``", "This will pull up some memes from r/memes and such");
+      embed.addField("``#avmeme / #plane``", "This will show some Aviation memes")
     }
     
     else if(helpMsg === "games"){
       embed.setTitle("Game commands");
       embed.addField("``#rps``", "This will start a game of Rock, Paper, Scissors");
+      embed.addField("``#8ball / #8b <question>``", "You ask, the 8ball answers with yes or no");
+      embed.addField("``#howgay``", "How gay are you?")
       embed.addField("More To Come soon! :D", "Stay Tuned :D");
     }
       

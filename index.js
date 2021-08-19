@@ -9,10 +9,23 @@ app.listen(port, () =>
 	console.log(`Example app listening at http://localhost:${port}`)
 );
 // ================= START BOT CODE ===================
-const { Client, MessageEmbed, Collection } = require('discord.js');
+const { Client, MessageEmbed, Collection, MessageAttachment } = require("discord.js");
+
+const Levels = require("discord-xp");
+Levels.setURL("mongodb://...");
+
 const client = new Client();
+
 const prefix = '#';
-const fs = require('fs');
+
+const fs = require('fs'); 
+
+const mongoose = require('mongoose')
+mongoose.connect('mongodb+srv://ValCord:<pOx81zone>@ytbot.g85r2.mongodb.net/test', {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useFindAndModify: false
+}).then(console.log('Connected to Mongo!'))
 
 client.commands = new Collection();
 
@@ -24,6 +37,25 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
+const canvacord = require ("canvacord")
+
+client.on("guildMemberAdd", async member => {
+  if(member.guild.id !== "754252071519256587") return;
+  const welcomeCard = new canvacord.Welcomer()
+  .setUsername(member.user.username)
+  .setDiscriminator(member.user.discriminator)
+  .setAvatar(member.user.displayAvatarURL({format: "png"}))
+  .setColor("#f5f5dc")
+  .setColor("username-box", "#f5f5dc")
+  .setColor("discriminator-box", "#f5f5dc")
+  .setColor("message-box", "#f5f5dc")
+  .setColor("border", "#f5f5dc")
+  .setColor("avatar", "#f5f5dc")
+  .setBackground("https://cdn.discordapp.com/attachments/871081165208047716/876821477880660008/Welcome_1.png")
+  .setMemberCount(member.guild.memberCount)
+  let attachment = new MessageAttachment(await welcomeCard.build(), "welcome.png")
+  member.guild.channels.cache.get("876828141799239770").send(member.user.toString(), attachment)
+});
 client.on('guildMemberAdd', member => {
 	let welcomeRole = member.guild.roles.cache.find(
 		role => role.name === 'Member'
@@ -63,12 +95,36 @@ client.on('guildMemberAdd', member => {
 	channel.send(`Hey ${member}`);
 	channel.send(embed);
 });
-
+client.on("guildMemberRemove", async member => {
+  if(member.guild.id !== "754252071519256587") return;
+  const welcomeCard = new canvacord.Leaver()
+  .setUsername(member.user.username)
+  .setDiscriminator(member.user.discriminator)
+  .setAvatar(member.user.displayAvatarURL({format: "png"}))
+  .setColor("#f5f5dc")
+  .setColor("username-box", "#f5f5dc")
+  .setColor("discriminator-box", "#f5f5dc")
+  .setColor("message-box", "#f5f5dc")
+  .setColor("border", "#f5f5dc")
+  .setColor("avatar", "#f5f5dc")
+  .setBackground("https://cdn.discordapp.com/attachments/871081165208047716/876821477880660008/Welcome_1.png")
+  .setMemberCount(member.guild.memberCount)
+  let attachment = new MessageAttachment(await welcomeCard.build(), "bye.png")
+  member.guild.channels.cache.get("866650203330576384").send(member.user.toString(), attachment
+  )});
 client.on('message', message => {
 	console.log(`Logged in as ${client.user.tag}!`);
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	client.user.setActivity('#help | linktr.ee/valcord_ for socials :D');
+
+  /*const randomAmountOfXp = Math.floor(Math.random() * 29) + 1;
+   const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomAmountOfXp);
+  if (hasLeveledUp) {
+    const user = await Levels.fetch(message.author.id, message.guild.id);
+    message.channel.send(message.author + "Congratulations! You have leveled up to **" + user.level + "**! :pepe_yes: ")
+  }*/
+
 	const args = message.content.slice(prefix.length).split(/ +/);
 	let command = args
 		.shift()
@@ -84,6 +140,11 @@ client.on('message', message => {
 	if (command === 'avatar') command = 'av';
 	if (command === 'colour') command = 'color';
 	if (command === 'userinfo') command = 'whois';
+  if (command === '8b') command = '8ball';
+  if (command === 'planememe') command = 'avmeme';
+  if (command === 'aviationmeme') command = 'avmeme';
+  if (command === 'plane') command = 'avmeme';
+
  
 	if (client.commands.has(command)) {
 		client.commands.get(command).execute(message, args);
