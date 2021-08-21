@@ -1,9 +1,8 @@
 const express = require('express');
 const { Client, MessageEmbed, Collection, MessageAttachment } = require("discord.js");
 const fs = require('fs'); 
-const Mongoose = require('mongoose');
-const Levels = require("discord-xp");
 const {Welcomer, Leaver} = require("canvacord");
+const Canvas = require("canvas")
 
 const port = 3000;
 const prefix = '#';
@@ -12,7 +11,23 @@ const mySecret = process.env['DISCORD_TOKEN']
 const app = express();
 const client = new Client();
 client.commands = new Collection();
-Levels.setURL("mongodb://ValCord:pOx81zone@ytbot.g85r2.mongodb.net:27017/?authSource=admin");
+
+
+
+/*var welcomeCanvas ={}
+welcomeCanvas.create = Canvas.createCanvas(1024, 500)
+welcomeCanvas.context = welcomeCanvas.create.getContext('2d')
+welcomeCanvas.context.font = '72px sans-serif';
+welcomeCanvas.context.fillStyle = 'f5f5dc'
+
+Canvas.loadImage("./bg.png").then(async (img) => {
+  welcomeCanvas.context.drawImage(img, 0, 0, 1024, 500)
+  welcomeCanvas.content.fillText("welcome", 360, 360);
+  welcomeCanvas.context.beginPath();
+  welcomeCanvas.context.arc(512, 166, 128, 0, Math.PI * 2, true);
+  welcomeCanvas.context.stroke()
+  welcomeCanvas.context.fill()
+}) */
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
@@ -29,6 +44,9 @@ Mongoose.connect('mongodb+srv://ValCord:pOx81zone@ytbot.g85r2.mongodb.net/test',
 }).then(console.log('Connected to Mongo!'));
 */
 
+client.on('ready', () => {
+  client.user.setActivity('#help | linktr.ee/valcord_ for socials :D');
+})
 const commandFiles = fs
 	.readdirSync('./commands/')
 	.filter(file => file.endsWith('.js'));
@@ -60,8 +78,17 @@ client.on("guildMemberAdd", async member => {
 
   //Another welcome card
   let welcomeRole = member.guild.roles.cache.find(role => role.name === 'Member');
+  let mainRanks = member.guild.roles.cache.find(role => role.name === '║--------------Main Roles--------------║');
+  let otherRanks = member.guild.roles.cache.find(role => role.name === '║--------------Other Roles--------------║');
+  let serverGameRanks = member.guild.roles.cache.find(role => role.name === '║----------Server Game Roles----------║');
+  let pingRanks = member.guild.roles.cache.find(role => role.name === '║-------------Pinging roles-------------║');
 	member.roles.add(welcomeRole);
-	const embed = new MessageEmbed()
+  member.roles.add(mainRanks);
+	member.roles.add(otherRanks);
+	member.roles.add(serverGameRanks);
+	member.roles.add(pingRanks);
+	
+  const embed = new MessageEmbed()
 		.setAuthor(
 			member.displayName,
 			member.user.displayAvatarURL({ dynamic: true })
@@ -114,20 +141,9 @@ client.on("guildMemberRemove", async member => {
 });
 
 client.on("message", async (message) => {
-  if (!message.guild) return;
-  if (message.author.bot) return;
-  
-  const randomAmountOfXp = Math.floor(Math.random() * 29) + 1; // Min 1, Max 30
-  const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomAmountOfXp);
-  if (hasLeveledUp) {
-    const user = await Levels.fetch(message.author.id, message.guild.id);
-    message.channel.send(`${message.author}, congratulations! You have leveled up to **${user.level}**. :tada:`);
-  }
 
 	console.log(`Logged in as ${client.user.tag}!`);
   if (!message.content.startsWith(prefix) || message.author.bot) return;
-
-	client.user.setActivity('#help | linktr.ee/valcord_ for socials :D');
 
 	const args = message.content.slice(prefix.length).split(/ +/);
 	let command = args

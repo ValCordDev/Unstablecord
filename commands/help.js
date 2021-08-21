@@ -55,16 +55,12 @@ module.exports = {
       embed.addField("``#help``", "Displays all the commands of the server.", false);
       embed.addField("``#mute <@user>``", "Mutes a user in the server.", false);
       embed.addField("``#unmute <@user>``", "Unmutes a user in the server", false);
-      embed.addField("``#warn <@user>``", "Warns a user.", false);
-      embed.addField("``#warnings <@user>``", "Displays all the past warnings of a user.", false);
-      embed.addField("``#clearwarnings <@user>``", "Clears all the warnings of a user.", false);
       embed.addField("``#report <@user> <option reason>``", "Reports a user.", false);
       embed.addField("``#kick <@user>``", "Kicks a user from the server.", false);
       embed.addField("``#cease``", "Forms a Cease line in the channel", false);
-      embed.addField("``#addrole <@user> <role>``", "Adds a role to a User.", false);
-      embed.addField("``#removerole <@user> <role>``", "Removes a role from a User", false);
       embed.addField("``#softban <@user> <reason>``", "Soft bans a user from the server.", false);
       embed.addField("``#purge <no. of messages>``", "Deletes a number of messages in a channel.", false);
+      embed.addField("``#slowmode <time>``", "Puts slowmode on the channel you send it to.")
     }
     else if(helpMsg === "levels"){
       embed.setTitle(":chart_with_upwards_trend: Level Commands");
