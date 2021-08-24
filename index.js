@@ -141,7 +141,7 @@ client.on("guildMemberRemove", async member => {
 });
 
 client.on("message", async (message) => {
-  
+
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	const args = message.content.slice(prefix.length).split(/ +/);
@@ -164,6 +164,7 @@ client.on("message", async (message) => {
   if (command === 'aviationmeme') command = 'avmeme';
   if (command === 'plane') command = 'avmeme';
   if (command === 'lvl') command = 'level';
+  if (command === 'pogfish') command = 'pog';
  
 	if (client.commands.has(command)) {
 		client.commands.get(command).execute(message, args);

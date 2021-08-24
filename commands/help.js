@@ -29,6 +29,8 @@ module.exports = {
       embed.addField("``#f <@user>``", "A way to say RIP to a user");
       embed.addField("``#meme``", "This will pull up some memes from r/memes and such");
       embed.addField("``#avmeme / #plane``", "This will show some Aviation memes")
+      embed.addField("``#pog / #pogfish``", "This will show a pog fish")
+      embed.addField("``#kms``", "Gives A RIP message to you :C")
     }
     
     else if(helpMsg === "games"){
