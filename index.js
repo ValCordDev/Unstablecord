@@ -141,8 +141,7 @@ client.on("guildMemberRemove", async member => {
 });
 
 client.on("message", async (message) => {
-
-	console.log(`Logged in as ${client.user.tag}!`);
+  
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	const args = message.content.slice(prefix.length).split(/ +/);
