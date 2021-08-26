@@ -22,15 +22,20 @@ module.exports = {
       embed.addField("``#discord``", "This will display all the discord links and services that we are in!", false);
       embed.addField("``#av / #avatar <@user>``", "This command will display avatar of pinged or author.", false);
       embed.addField("``#ping``", "Gets the ping of the server and bot.", false);
-      embed.addField("``#afk``", "Set's an AFK message for the user.", false);
       embed.addField("``#color / #colour``", "Displays the Color That this bot is using across all of the commands.", false);
       embed.addField("``#whois / #userinfo <@user>``", "Displays Info about user pinged or author.");
       embed.addField("``#serverinfo``", "Displays Info about this server.");
+      }
+
+    else if(helpMsg === "fun"){
+      embed.setTitle("Fun Commands");
       embed.addField("``#f <@user>``", "A way to say RIP to a user");
       embed.addField("``#meme``", "This will pull up some memes from r/memes and such");
-      embed.addField("``#avmeme / #plane``", "This will show some Aviation memes")
-      embed.addField("``#pog / #pogfish``", "This will show a pog fish")
-      embed.addField("``#kms``", "Gives A RIP message to you :C")
+      embed.addField("``#avmeme / #plane``", "This will show some Aviation memes");
+      embed.addField("``#pog / #pogfish``", "This will show a pog fish");
+      embed.addField("``#kms``", "Gives A RIP message to you :C");
+      embed.addField("``#dog``", "for all yall dog lovers out there");
+      embed.addField("``#cat``", "for all yall cat lovers out there");
     }
     
     else if(helpMsg === "games"){
@@ -83,6 +88,7 @@ module.exports = {
       embed.addField("Memes", "``#help memes``", true);
       embed.addField("Misc", "``#help misc``", true);
       embed.addField("Games", "``#help games``", true);
+      embed.addField("Fun", "``#help fun``", true);
     }
     message.channel.send(embed);
   }
