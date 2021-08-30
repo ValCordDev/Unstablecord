@@ -25,6 +25,7 @@ module.exports = {
       embed.addField("``#color / #colour``", "Displays the Color That this bot is using across all of the commands.", false);
       embed.addField("``#whois / #userinfo <@user>``", "Displays Info about user pinged or author.");
       embed.addField("``#serverinfo``", "Displays Info about this server.");
+      embed.addField("``#hi <@someone>``", "A way to say hi to someone");
       }
 
     else if(helpMsg === "fun"){
@@ -36,6 +37,7 @@ module.exports = {
       embed.addField("``#kms``", "Gives A RIP message to you :C");
       embed.addField("``#dog``", "for all yall dog lovers out there");
       embed.addField("``#cat``", "for all yall cat lovers out there");
+      embed.addField("``#fox``", "for all yall fox lovers out there");
     }
     
     else if(helpMsg === "games"){
