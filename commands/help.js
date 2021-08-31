@@ -26,6 +26,7 @@ module.exports = {
       embed.addField("``#whois / #userinfo <@user>``", "Displays Info about user pinged or author.");
       embed.addField("``#serverinfo``", "Displays Info about this server.");
       embed.addField("``#hi <@someone>``", "A way to say hi to someone");
+      embed.addField("``#wave <@someone>``", "Wave to someone new maybe?");
       }
 
     else if(helpMsg === "fun"){
