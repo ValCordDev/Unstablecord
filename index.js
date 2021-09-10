@@ -45,8 +45,9 @@ Mongoose.connect('mongodb+srv://ValCord:pOx81zone@ytbot.g85r2.mongodb.net/test',
 */
 
 client.on('ready', () => {
-  client.user.setActivity('#help | linktr.ee/valcord_ for socials :D');
+  client.user.setActivity('#help | linktr.ee/valcord_ for socials :D', { type: "LISTENING" });
 })
+//(`[ ${PREFIX}help and ${PREFIX}play ]`, { type: "LISTENING" });
 const commandFiles = fs
 	.readdirSync('./commands/')
 	.filter(file => file.endsWith('.js'));
@@ -165,6 +166,8 @@ client.on("message", async (message) => {
   if (command === 'plane') command = 'avmeme';
   if (command === 'lvl') command = 'level';
   if (command === 'pogfish') command = 'pog';
+  if (command === 'avatarmerge') command = 'avs';
+  if (command === 'avmerge') command = 'avs';
  
 	if (client.commands.has(command)) {
 		client.commands.get(command).execute(message, args);

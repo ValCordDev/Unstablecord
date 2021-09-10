@@ -39,6 +39,9 @@ module.exports = {
       embed.addField("``#dog``", "for all yall dog lovers out there");
       embed.addField("``#cat``", "for all yall cat lovers out there");
       embed.addField("``#fox``", "for all yall fox lovers out there");
+      embed.addField("``#dadjoke``", "This will pull up some not so funny but still worth it jokes/memes")
+      embed.addField("``#cnjoke``", "This will give you a Chuck Norris Joke.")
+      embed.addField("``#avs / #avmerge <@someone> <@someone>``", "This will merge 2 avatars together")
     }
     
     else if(helpMsg === "games"){
@@ -46,6 +49,7 @@ module.exports = {
       embed.addField("``#rps``", "This will start a game of Rock, Paper, Scissors");
       embed.addField("``#8ball / #8b <question>``", "You ask, the 8ball answers with yes or no");
       embed.addField("``#howgay``", "How gay are you?")
+      embed.addField("``#pp``", "How big PP do you have?")
       embed.addField("More To Come soon! :D", "Stay Tuned :D");
     }
       

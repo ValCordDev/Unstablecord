@@ -2,7 +2,7 @@
 const {MessageEmbed } = require('discord.js');
 
 module.exports = {
-  name:'rules',
+  name:'app',
   execute(message, args){
     const embed = new MessageEmbed()
       .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
