@@ -1,21 +1,21 @@
-const randomPuppy = require('random-puppy');
-const {MessageEmbed } = require('discord.js');
+const superagent = require("snekfetch");
+const Discord = require('discord.js')
+
+
 
 module.exports = {
   name: "dog",
-  description: "dog command",
-  execute: async (message, args) => {
-    const subReddits = ["dog"]
-    const random = subReddits[Math.floor(Math.random() * subReddits.length)]
-
-    const img = await randomPuppy(random)
-
-    const embed = new MessageEmbed()
-    .setColor("#f5f5dc")
-    .setImage(img)
-    .setTitle('Your **Dog** has been given, All the way from r/' + random)
-    .setURL('https://reddit.com/r/' + random)
-
-    message.channel.send(embed)
-  }
+execute: async (message, args) => {
+//command
+superagent.get('https://nekos.life/api/v2/img/woof')
+    .end((err, response) => {
+  const lewdembed = new Discord.MessageEmbed()
+  .setTitle("<a:dog1:730389376210829344>")
+  .setImage(response.body.url)
+  .setColor(`#f5f5dc`)
+  .setFooter(`🤣WHAT A DOG🤣`)
+  .setURL(response.body.url);
+message.channel.send(lewdembed);
+})
 }
+};

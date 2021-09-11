@@ -42,6 +42,8 @@ module.exports = {
       embed.addField("``#dadjoke``", "This will pull up some not so funny but still worth it jokes/memes")
       embed.addField("``#cnjoke``", "This will give you a Chuck Norris Joke.")
       embed.addField("``#avs / #avmerge <@someone> <@someone>``", "This will merge 2 avatars together")
+      embed.addField("``#ascii <what text you want to convert>``", "This will create a ascii version of your text")
+      embed.addField("``#jail <@someone>``", "Jail someone")
     }
     
     else if(helpMsg === "games"){

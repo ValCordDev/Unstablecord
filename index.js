@@ -168,6 +168,8 @@ client.on("message", async (message) => {
   if (command === 'pogfish') command = 'pog';
   if (command === 'avatarmerge') command = 'avs';
   if (command === 'avmerge') command = 'avs';
+  if (command === 'sav') command = 'serveravatar';
+  if (command === 'serverav') command = 'serveravatar';
  
 	if (client.commands.has(command)) {
 		client.commands.get(command).execute(message, args);
