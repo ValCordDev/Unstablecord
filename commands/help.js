@@ -44,6 +44,7 @@ module.exports = {
       embed.addField("``#avs / #avmerge <@someone> <@someone>``", "This will merge 2 avatars together")
       embed.addField("``#ascii <what text you want to convert>``", "This will create a ascii version of your text")
       embed.addField("``#jail <@someone>``", "Jail someone")
+      embed.addField("``#sudo <@someone> <Message>``", "Impersonate :amogus:")
     }
     
     else if(helpMsg === "games"){
