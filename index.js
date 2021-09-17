@@ -170,6 +170,8 @@ client.on("message", async (message) => {
   if (command === 'avmerge') command = 'avs';
   if (command === 'sav') command = 'serveravatar';
   if (command === 'serverav') command = 'serveravatar';
+  if (command === 'covid') command = 'corona';
+  if (command === 'coinflip') command = 'coin';
  
 	if (client.commands.has(command)) {
 		client.commands.get(command).execute(message, args);

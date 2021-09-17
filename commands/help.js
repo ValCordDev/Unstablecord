@@ -1,4 +1,3 @@
-
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
@@ -27,6 +26,8 @@ module.exports = {
       embed.addField("``#serverinfo``", "Displays Info about this server.");
       embed.addField("``#hi <@someone>``", "A way to say hi to someone");
       embed.addField("``#wave <@someone>``", "Wave to someone new maybe?");
+      embed.addField("``#corona / #covid``", "Will show Covid stats.")
+      embed.addField("``#covidstats <country>``", "Will show Covid Stats of a specific country")
       }
 
     else if(helpMsg === "fun"){
@@ -39,12 +40,16 @@ module.exports = {
       embed.addField("``#dog``", "for all yall dog lovers out there");
       embed.addField("``#cat``", "for all yall cat lovers out there");
       embed.addField("``#fox``", "for all yall fox lovers out there");
+      embed.addField("``#bird``", 'Bird info and the pictures, i guess you can call it "2 birds one stone"')
       embed.addField("``#dadjoke``", "This will pull up some not so funny but still worth it jokes/memes")
       embed.addField("``#cnjoke``", "This will give you a Chuck Norris Joke.")
       embed.addField("``#avs / #avmerge <@someone> <@someone>``", "This will merge 2 avatars together")
       embed.addField("``#ascii <what text you want to convert>``", "This will create a ascii version of your text")
       embed.addField("``#jail <@someone>``", "Jail someone")
       embed.addField("``#sudo <@someone> <Message>``", "Impersonate :amogus:")
+      embed.addField("``#binary``", "Will convert your text into binary codes")
+      embed.addField("``#clyde <text>``", "Act like clyde wrote that to you...")
+      embed.addField("``#reverse <text>``", "Reverse text, pretty funny stuff tbh")
     }
     
     else if(helpMsg === "games"){
@@ -53,6 +58,7 @@ module.exports = {
       embed.addField("``#8ball / #8b <question>``", "You ask, the 8ball answers with yes or no");
       embed.addField("``#howgay``", "How gay are you?")
       embed.addField("``#pp``", "How big PP do you have?")
+      embed.addField("``#coin / #coinflip``", "Heads or Tails?")
       embed.addField("More To Come soon! :D", "Stay Tuned :D");
     }
       

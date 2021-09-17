@@ -8,8 +8,8 @@ module.exports = {
       .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
       .setTimestamp(Date.now())
       .setColor(0xF5F5DC)
-      .setDescription(message.content.replace(prefix + "embed", "").trim());
-      message.channel.send(embed).then((msg) =>{
+      .setDescription(message.content.replace(prefix + "embed", "").trim())
+     message.channel.send(embed).then((msg) =>{
       message.delete();
     });
   }

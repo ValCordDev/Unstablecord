@@ -1,20 +1,24 @@
-const { MessageEmbed } = require('discord.js');
+const {MessageEmbed} = require("discord.js");
 
 module.exports = {
-  name:'serverinfo',
-  execute(message, args){
-    const embed = new MessageEmbed()
-      .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
-      .setColor(0xF5F5DC)
-      .setTitle(`**__Server Information__**`)
-      .setImage("https://cdn.discordapp.com/attachments/853591380973322240/855560733379002448/PicsArt_06-19-05.23.36.jpg")
-      .setAuthor(`${message.guild.name}`, message.guild.iconURL)
-      .addField("**Role Amount:**", `${message.guild.roles.cache.size}`, false)
-      .addField("**Server Owner:**", `${message.guild.owner}`, false)
-      .addField("**Member Count:**", `${message.guild.memberCount}`, false)
-      .setDescription(`Server Creation Date: ${message.guild.createdAt}`)
-      .addField("**Channel Amount:**", `${message.guild.channels.cache.size}`, false)
-      .addField("**Guild ID:**", `${message.guild.id}`, false);
-    message.channel.send(embed);
-  }
+  name: "serverinfo",
+execute: async (message, args) => {
+//command
+let servericon = message.guild.iconURL;
+let serverembed = new MessageEmbed()
+.setTitle("Server Information")
+.setColor("#f5f5dc")
+.setThumbnail(servericon)
+.addField("Server Name", message.guild.name)
+.addField("Owner", `${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`, true)
+.addField("Channels", message.guild.channels.cache.size, true)
+.addField("Roles", message.guild.roles.cache.size, true)
+.addField("Created On", message.guild.createdAt)
+.addField("You Joined", message.member.joinedAt)
+.addField("Total Members", message.guild.memberCount)
+.setThumbnail(message.guild.iconURL())
+.setTimestamp()
+.setFooter(message.author.username, message.author.avatarURL);
+message.channel.send(serverembed);
 }
+};

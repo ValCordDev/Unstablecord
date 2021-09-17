@@ -1,3 +1,12 @@
 {
-  "files": {}
+  "files": {
+    "commands/coin.js": [
+      {
+        "id": "90beb2ff-e03e-4cc1-88ac-c4f3a61a1475",
+        "line": 25,
+        "version": 153,
+        "index": 818
+      }
+    ]
+  }
 }
