@@ -12,7 +12,7 @@ module.exports = {
     const img = await randomPuppy(random)
 
     const embed = new MessageEmbed()
-    .setColor("#f5f5dc")
+    .setColor(config.color)
     .setImage(img)
     .setTitle('Your **Aviationmeme** has been granted, All the way from r/' + random)
     .setURL('https://reddit.com/r/' + random)

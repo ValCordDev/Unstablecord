@@ -13,7 +13,7 @@ module.exports ={
     embed
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
     .setTimestamp(Date.now())
-    .setColor(0xF5F5DC)
+    .setColor(config.color)
     .setDescription(messageArgs);
 
     channel.send(embed).then((msg) =>{
@@ -24,7 +24,7 @@ module.exports ={
     replyEmbed
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
     .setTimestamp(Date.now())
-    .setColor(0xF5F5DC)
+    .setColor(config.color)
     .setDescription('Bug report has been recorded.');
     message.channel.send(replyEmbed);
   }

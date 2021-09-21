@@ -8,6 +8,6 @@ module.exports = {
     execute(message, args) {
         message.channel.send(new Discord.MessageEmbed()
             .setDescription(`:rotating_light: ${message.guild.members.cache.random(1)} is a bish!`)
-            .setColor(`#f5f5dc`));
+            .setColor(config.color));
     }
 };

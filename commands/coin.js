@@ -12,14 +12,14 @@ module.exports = {
         if (picker == 1) {
             const embed = new MessageEmbed()
                 .setTitle("Coin flip")
-                .setColor("#f5f5dc")
+                .setColor(config.color)
                 .setDescription(`The Coin Flips **Heads** :coin:`)
             message.channel.send(embed)
         }
         else {
             const embed = new MessageEmbed()
                 .setTitle("Coin flip")
-                .setColor("#f5f5dc")
+                .setColor(config.color)
                 .setDescription(`The Coin Flips **Tails** :coin:`)
             message.channel.send(embed)
         }

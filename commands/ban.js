@@ -26,7 +26,7 @@ module.exports = {
     
     if(target.bannable) {
       let embed = new discord.MessageEmbed()
-      .setColor("#f5f5dc")
+      .setColor(config.color)
       .setDescription(`Banned \`${target}\` for \`${reason || "No Reason Provided"}\``)
       
       message.channel.send(embed)

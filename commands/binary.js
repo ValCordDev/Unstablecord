@@ -20,7 +20,7 @@ module.exports = {
 		const embed = new MessageEmbed()
 			.setTitle('Text to Binary')
 			.setDescription("``" + response.binary + "``")
-      .setColor("#f5f5dc");
+      .setColor(config.color);
 
 		return message.channel.send(embed);
 	},

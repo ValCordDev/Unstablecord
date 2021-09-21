@@ -8,7 +8,7 @@ execute: async (message, args) => {
 let servericon = message.guild.iconURL;
 let serverembed = new MessageEmbed()
 .setTitle("Server Information")
-.setColor("#f5f5dc")
+.setColor(config.color)
 .setThumbnail(servericon)
 .addField("Server Name", message.guild.name)
 .addField("Owner", `${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`, true)

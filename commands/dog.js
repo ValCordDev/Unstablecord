@@ -12,7 +12,7 @@ superagent.get('https://nekos.life/api/v2/img/woof')
   const lewdembed = new Discord.MessageEmbed()
   .setTitle("<a:dog1:730389376210829344>")
   .setImage(response.body.url)
-  .setColor(`#f5f5dc`)
+  .setColor(config.color)
   .setFooter(`🤣WHAT A DOG🤣`)
   .setURL(response.body.url);
 message.channel.send(lewdembed);

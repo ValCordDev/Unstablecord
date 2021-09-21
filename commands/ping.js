@@ -9,7 +9,7 @@ module.exports = {
     const embed = new MessageEmbed()
       .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
       .setTimestamp(Date.now())
-      .setColor(0xF5F5DC)
+      .setColor(config.color)
       .setTitle("Pong!")
       .setDescription("Bot latency " + (Date.now() - msgTime) + " ms.");
       message.channel.send(embed);

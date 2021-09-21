@@ -7,7 +7,7 @@ module.exports = {
     const embed = new MessageEmbed()
       .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
       .setTimestamp(Date.now())
-      .setColor(0xF5F5DC)
+      .setColor(config.color)
       .setTitle("Social Links")
       .addField("Discord.gg Link:", "``discord.gg/vWMeA5KaeU``")
       .addField("Dsc.gg Link:", "``dsc.gg/valcord``")

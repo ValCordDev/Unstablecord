@@ -8,7 +8,7 @@ module.exports = {
     const embed = new MessageEmbed() 
     if(!message.member.hasPermission("MANAGE_MESSAGES")){return message.reply("You don't have perms to do this command")}
     embed.setTitle("**CEASE LINE**")
-    .setColor(0xF5F5DC)
+    .setColor(config.color)
     .setDescription(":warning: **ALERT:** A Cease Line has been called! \n" + 
     "============== \n" + 
     "``Cease Your Conversation!`` \n" + 

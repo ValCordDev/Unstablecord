@@ -1,4 +1,5 @@
 module.exports = {
+    "botname": "UnstableCord",
     "color": "#d24a58",
     "prefix": "#",
     "botlogo": "https://media.discordapp.net/attachments/831195524882759722/889258351433744444/PicsArt_09-19-11.15.04.jpg?width=670&height=670",

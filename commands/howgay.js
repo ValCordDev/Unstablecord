@@ -11,7 +11,7 @@ module.exports = {
     const howgayembed = new MessageEmbed()
     .setTitle("Gay mashine Calculator")
     .setDescription(user.username + " is " + rng + "% Gay🌈")
-    .setColor("#f5f5dc")
+    .setColor(config.color)
     
     message.channel.send(howgayembed);
   }

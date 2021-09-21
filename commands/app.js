@@ -7,7 +7,7 @@ module.exports = {
     const embed = new MessageEmbed()
       .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
       .setTimestamp(Date.now())
-      .setColor(0xF5F5DC)
+      .setColor(config.color)
       embed.setTitle("**This is the Available Applications on this server At this moment :D**");
   
       embed.setDescription("**SMP Applications - ``ea!apply SMP``** \n\n" +

@@ -9,7 +9,7 @@ module.exports = {
     .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
     .setDescription(`**Pog Fish has Arrived!**`)
     .setImage("https://c.tenor.com/j8SaWIj5Mr4AAAAd/fish-pog-fish.gif")
-    .setColor(0xF5F5DC);
+    .setColor(config.color);
     message.channel.send(embed).then((msg) =>{
       msg.react('🇵');
       msg.react('🇴');

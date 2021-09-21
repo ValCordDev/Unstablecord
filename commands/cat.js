@@ -12,7 +12,7 @@ superagent.get('https://nekos.life/api/v2/img/meow')
   const lewdembed = new Discord.MessageEmbed()
   .setTitle("Random cat")
   .setImage(response.body.url)
-  .setColor(`#f5f5dc`)
+  .setColor(config.color)
   .setFooter(`owo`)
   .setURL(response.body.url);
 message.channel.send(lewdembed);

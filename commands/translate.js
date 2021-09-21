@@ -10,7 +10,7 @@ module.exports = {
     translate(txt, { to: 'en'}).then(res => {
       const embed = new MessageEmbed()
       .setDescription('``' + res.text + '``')
-      .setColor('#f5f5dc')
+      .setColor(config.color)
       .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
       .setFooter("Google Translate's got you covered")
       message.channel.send(embed);

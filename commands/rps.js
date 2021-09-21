@@ -7,7 +7,7 @@ module.exports = {
     name: "rps",
     execute: async (message, args) => {
         const embed = new MessageEmbed()
-            .setColor(0xF5F5DC)
+            .setColor(config.color)
             .setDescription("Add a reaction to one of these emojis to play the game!");
         const m = await message.channel.send(embed);
         const reacted = await promptMessage(m, message.author, 30, chooseArr);

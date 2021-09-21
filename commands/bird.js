@@ -24,7 +24,7 @@ module.exports = {
 
 		const embed = new MessageEmbed()
 			.setTitle('Random Bird Image and Fact')
-			.setColor('#f5f5dc')
+			.setColor(config.color)
 			.setDescription(fact.fact)
 			.setImage(image.link);
 

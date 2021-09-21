@@ -7,7 +7,7 @@ module.exports = {
     const embed = new MessageEmbed()
       .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
       .setTimestamp(Date.now())
-      .setColor(0xF5F5DC)
+      .setColor(config.color)
       .setTitle("**If any rules in this list or Discord's TOS in any way gets violated or   bypassed, action taking will result in appropriate consequence (ban/mute/kick)**")
       .setDescription("**§1.1 No Toxicity ( Including Racism ) is allowed. It will start     with a warning after that its a ban!**\n\n" + 
       "**§1.2 No Usage of IRL Money as currency ( Paypal, BTC ) ONLY ingame coins**\n\n" + 

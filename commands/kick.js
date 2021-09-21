@@ -21,7 +21,7 @@ const reason = args.slice(1).join(" ")
             const embed = new MessageEmbed()
             .setAuthor(`${message.author.username} - (${message.author.id})`, message.author.displayAvatarURL({dynamic: true}))
             .setThumbnail(mentionedMember.user.displayAvatarURL({dynamic: true}))
-            .setColor(`#f5f5dc`)
+            .setColor(config.color)
             .setDescription(`
 **Member:** ${mentionedMember.user.username} - (${mentionedMember.user.id})
 **Reason:** ${reason || "None"}
@@ -37,7 +37,7 @@ const reason = args.slice(1).join(" ")
 
             const embed = new MessageEmbed()
                 .setAuthor(`${message.guild.name} Modlogs`, message.guild.iconURL())
-                .setColor("#ff0000")
+                .setColor(config.color)
                 .setThumbnail(kickMember.user.displayAvatarURL({ dynamic: true }))
                 .setFooter(message.guild.name, message.guild.iconURL())
                 .addField("**Moderation**", "kick")
