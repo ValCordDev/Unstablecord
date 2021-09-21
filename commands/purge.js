@@ -1,3 +1,5 @@
+const config = require ("../config.js");
+
 module.exports = {
   name:'purge',
   description: "purges amount of messages",

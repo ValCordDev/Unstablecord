@@ -1,4 +1,5 @@
 const discord = require("discord.js");
+const config = require ("../config.js");
 
 module.exports = {
   name: "ban",

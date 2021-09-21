@@ -1,5 +1,6 @@
 const randomPuppy = require('random-puppy');
 const {MessageEmbed } = require('discord.js');
+const config = require ("../config.js");
 
 module.exports = {
   name: "avmeme",

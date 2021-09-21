@@ -1,6 +1,8 @@
 const { Command } = require('discord.js-commando');
 const axios = require('axios');
 const {MessageEmbed } = require('discord.js');
+const config = require ("../config.js");
+
 module.exports = {
   name: "covidstats",
   execute: async (message, args) => {

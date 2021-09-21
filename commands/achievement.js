@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js");
+const config = require ("../config.js");
 
 module.exports = {
   name: "achievement",
@@ -16,7 +17,7 @@ module.exports = {
       .setImage(
         `https://minecraftskinstealer.com/achievement/12/Achievement%20Get!/${ach}`
       )
-      .setColor("#f5f5dc")
+      .setColor(config.color)
     message.channel.send(e);
   },
 };

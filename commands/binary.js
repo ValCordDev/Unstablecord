@@ -1,5 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const axios = require('axios');
+const config = require ("../config.js");
 
 module.exports = {
 	name: 'binary',

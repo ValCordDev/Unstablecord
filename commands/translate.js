@@ -1,5 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const translate = require('@iamtraction/google-translate')
+const config = require ("../config.js");
 
 module.exports = {
   name: "translate",

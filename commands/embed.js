@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const prefix = '#';
+const config = require ("../config.js");
 
 module.exports = {
   name:'embed',
@@ -7,11 +7,10 @@ module.exports = {
     const embed = new MessageEmbed()
       .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
       .setTimestamp(Date.now())
-      .setColor(0xF5F5DC)
-      .setDescription(message.content.replace(prefix + "embed", "").trim())
+      .setColor(config.color)
+      .setDescription(message.content.replace(config.prefix + "embed", "").trim())
      message.channel.send(embed).then((msg) =>{
       message.delete();
     });
   }
 }
-

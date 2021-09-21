@@ -1,6 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 const { promptMessage } = require("../functions.js");
 const chooseArr = ["🗻", "📰", "✂"];
+const config = require ("../config.js");
 
 module.exports = {
     name: "rps",

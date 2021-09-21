@@ -1,11 +1,12 @@
-const express = require('express');
 const { Client, MessageEmbed, Collection, MessageAttachment } = require("discord.js");
 const fs = require('fs'); 
 const {Welcomer, Leaver} = require("canvacord");
-const Canvas = require("canvas")
+const Canvas = require("canvas");
+const config = require ("./config.js");
+const express = require('express')
 
 const port = 3000;
-const prefix = '#';
+const prefix = config.prefix;
 const mySecret = process.env['DISCORD_TOKEN']
 
 const app = express();
@@ -29,7 +30,7 @@ Canvas.loadImage("./bg.png").then(async (img) => {
   welcomeCanvas.context.fill()
 }) */
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/', (req, res) => res.send('monke World!'));
 
 app.listen(port, () =>
 	console.log(`Example app listening at http://localhost:${port}`)
@@ -65,12 +66,12 @@ client.on("guildMemberAdd", async member => {
     .setUsername(member.user.username)
     .setDiscriminator(member.user.discriminator)
     .setAvatar(member.user.displayAvatarURL({format: "png"}))
-    .setColor("#f5f5dc")
-    .setColor("username-box", "#f5f5dc")
-    .setColor("discriminator-box", "#f5f5dc")
-    .setColor("message-box", "#f5f5dc")
-    .setColor("border", "#f5f5dc")
-    .setColor("avatar", "#f5f5dc")
+    .setColor(config.color)
+    .setColor("username-box", config.color)
+    .setColor("discriminator-box", config.color)
+    .setColor("message-box", config.color)
+    .setColor("border", config.color)
+    .setColor("avatar", config.color)
     .setBackground("https://cdn.discordapp.com/attachments/871081165208047716/876821477880660008/Welcome_1.png")
     .setMemberCount(member.guild.memberCount);
   let attachment = new MessageAttachment(await welcomeCard.build(), "welcome.png");
@@ -112,7 +113,7 @@ client.on("guildMemberAdd", async member => {
 			'https://images-ext-1.discordapp.net/external/stjQMBDAFp4D3Mje1lQ4bwT6HxcRC3d2L1_SyxVY7Ac/%3Fitemid%3D5859657/https/media1.tenor.com/images/748b74e67742c6a75f63b18145939a19/tenor.gif?width=1000&height=750'
 		)
 		.setFooter('Enjoy your time here!')
-		.setColor(0xf5f5dc);
+		.setColor(config.color);
 	
   const channel = member.guild.channels.cache.find(ch => ch.name === '👋welcome');
   // Do nothing if the channel wasn't found on this server
@@ -129,12 +130,12 @@ client.on("guildMemberRemove", async member => {
     .setUsername(member.user.username)
     .setDiscriminator(member.user.discriminator)
     .setAvatar(member.user.displayAvatarURL({format: "png"}))
-    .setColor("#f5f5dc")
-    .setColor("username-box", "#f5f5dc")
-    .setColor("discriminator-box", "#f5f5dc")
-    .setColor("message-box", "#f5f5dc")
-    .setColor("border", "#f5f5dc")
-    .setColor("avatar", "#f5f5dc")
+    .setColor(config.color)
+    .setColor("username-box", config.color)
+    .setColor("discriminator-box", config.color)
+    .setColor("message-box", config.color)
+    .setColor("border", config.color)
+    .setColor("avatar", config.color)
     .setBackground("https://cdn.discordapp.com/attachments/871081165208047716/876821477880660008/Welcome_1.png")
     .setMemberCount(member.guild.memberCount);
   let attachment = new MessageAttachment(await welcomeCard.build(), "bye.png");
@@ -155,7 +156,7 @@ client.on("message", async (message) => {
 	const embed = new MessageEmbed()
 		.setAuthor(message.author.username, message.author.displayAvatarURL())
 		.setTimestamp(Date.now())
-		.setColor(0xf5f5dc);
+		.setColor(config.color);
 
 	if (command === 'avatar') command = 'av';
 	if (command === 'colour') command = 'color';

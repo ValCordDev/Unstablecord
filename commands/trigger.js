@@ -1,5 +1,6 @@
 const canvacord = require ("canvacord")
 const { MessageAttachment } = require("discord.js")
+const config = require ("../config.js");
 
 module.exports= {
   name:"trigger",

@@ -1,5 +1,7 @@
 const { createCanvas, loadImage } = require('canvas');
 const request = require('node-superfetch');
+const config = require ("../config.js");
+
 module.exports = {
   name: "avs",
     execute: async (message, args) => {

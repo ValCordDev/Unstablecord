@@ -2,6 +2,8 @@ const Canvas = require('canvas');
 const { MessageAttachment } = require('discord.js');
 const canvacord = require("canvacord");
 const path = require("path");
+const config = require ("../config.js");
+
 module.exports = {
 
     name: path.parse(__filename).name,

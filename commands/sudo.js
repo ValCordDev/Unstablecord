@@ -1,3 +1,5 @@
+const config = require ("../config.js");
+
 module.exports = {
   name: "sudo",
   description: "Makes a webhook to impersonate someone",

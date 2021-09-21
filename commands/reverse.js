@@ -1,5 +1,6 @@
-  
+const config = require ("../config.js");  
 const { Command } = require('discord.js-commando');
+
 module.exports = {
   name:'reverse',
   execute(message, args){

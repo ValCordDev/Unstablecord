@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 const { letterTrans } = require('custom-translate');
+const config = require ("../config.js");
+
 module.exports = {
   name: "textflip",
   description: "textflip command",

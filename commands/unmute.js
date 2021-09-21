@@ -1,3 +1,5 @@
+const config = require ("../config.js");
+
 module.exports = {
   name:'unmute',
   execute(message, args){

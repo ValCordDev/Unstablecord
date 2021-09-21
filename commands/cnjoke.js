@@ -1,5 +1,6 @@
 const {MessageEmbed } = require('discord.js');
 const GiveMeAJoke = require("discord-jokes");
+const config = require ("../config.js");
 
 module.exports = {
   name: "cnjoke",

@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js")
 const moment = require('moment')
+const config = require ("../config.js");
 
 module.exports = {
 name: "kick",

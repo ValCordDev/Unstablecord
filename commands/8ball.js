@@ -1,4 +1,5 @@
 const { MessageEmbed } = require('discord.js');
+const config = require ("../config.js");
 
 module.exports = {
   name: "8ball",
@@ -12,7 +13,7 @@ module.exports = {
 
     let ballembed = new MessageEmbed()
     .setAuthor('🎱 ' + message.author.username)
-    .setColor("#f5f5dc")
+    .setColor(config.color)
     .addField("Question", "``" + question + "``")
     .addField("Answer", "``" + replies[result] + "``")
 

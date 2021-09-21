@@ -1,5 +1,7 @@
 const Discord = require("discord.js");
 const snekfetch = require("snekfetch")
+const config = require ("../config.js");
+
 module.exports ={
   name: 'advice',
   execute: async (message, args) => {

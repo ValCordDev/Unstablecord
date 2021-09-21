@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const mcapi = require('mcapi');
+const config = require ("../config.js");
 
 module.exports = {
     name: "mc",

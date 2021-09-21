@@ -1,5 +1,6 @@
 const axios = require('axios');
 const { MessageEmbed } = require('discord.js');
+const config = require ("../config.js");
 
 module.exports = {
 	name: 'bird',
