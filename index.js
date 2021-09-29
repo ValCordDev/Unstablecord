@@ -1,19 +1,35 @@
-const { Client, MessageEmbed, Collection, MessageAttachment } = require("discord.js");
-const fs = require('fs'); 
-const {Welcomer, Leaver} = require("canvacord");
-const Canvas = require("canvas");
-const config = require ("./config.js");
-const express = require('express')
+const { Util, Client, MessageEmbed, Collection, MessageAttachment, Discord, Permissions } = require('discord.js');
+const fs = require('fs');
+const { Welcomer, Leaver } = require('canvacord');
+const Canvas = require('canvas');
+const config = require('./config.js');
+const express = require('express');
+const snekfetch = require("snekfetch");
+const figlet = require("figlet");
+const randomPuppy = require('random-puppy');
+const request = require('node-superfetch');
+const axios = require('axios');
+const math = require('mathjs');
+const path = require("path");
+const GiveMeAJoke = require("discord-jokes");
+const { Command } = require('discord.js-commando');
+const moment = require('moment');
+const mcapi = require('mcapi');
+const { promptMessage } = require("./functions.js");
+const { letterTrans } = require('custom-translate');
+const translate = require('@iamtraction/google-translate')
+const canvacord = require ("canvacord")
+/* const Levels = require("discord-xp");
+
+Levels.setURL(process.env.DB); */
 
 const port = 3000;
 const prefix = config.prefix;
-const mySecret = process.env['DISCORD_TOKEN']
+const mySecret = process.env['DISCORD_TOKEN'];
 
 const app = express();
 const client = new Client();
 client.commands = new Collection();
-
-
 
 /*var welcomeCanvas ={}
 welcomeCanvas.create = Canvas.createCanvas(1024, 500)
@@ -46,8 +62,10 @@ Mongoose.connect('mongodb+srv://ValCord:pOx81zone@ytbot.g85r2.mongodb.net/test',
 */
 
 client.on('ready', () => {
-  client.user.setActivity('#help | linktr.ee/valcord_ for socials :D', { type: "LISTENING" });
-})
+	client.user.setActivity('#help | linktr.ee/valcord_ for socials :D', {
+		type: 'LISTENING'
+	});
+});
 //(`[ ${PREFIX}help and ${PREFIX}play ]`, { type: "LISTENING" });
 const commandFiles = fs
 	.readdirSync('./commands/')
@@ -58,39 +76,56 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
-client.on("guildMemberAdd", async member => {
-  if(member.guild.id !== "754252071519256587") return;
+client.on('guildMemberAdd', async member => {
+	if (member.guild.id !== '754252071519256587') return;
 
-  //Welcome card
-  const welcomeCard = new Welcomer()
-    .setUsername(member.user.username)
-    .setDiscriminator(member.user.discriminator)
-    .setAvatar(member.user.displayAvatarURL({format: "png"}))
-    .setColor(config.color)
-    .setColor("username-box", config.color)
-    .setColor("discriminator-box", config.color)
-    .setColor("message-box", config.color)
-    .setColor("border", config.color)
-    .setColor("avatar", config.color)
-    .setBackground("https://cdn.discordapp.com/attachments/871081165208047716/876821477880660008/Welcome_1.png")
-    .setMemberCount(member.guild.memberCount);
-  let attachment = new MessageAttachment(await welcomeCard.build(), "welcome.png");
-  member.guild.channels.cache.get("876828141799239770").send(member.user.toString(), attachment);
-  //End welcome card
+	//Welcome card
+	const welcomeCard = new Welcomer()
+		.setUsername(member.user.username)
+		.setDiscriminator(member.user.discriminator)
+		.setAvatar(member.user.displayAvatarURL({ format: 'png' }))
+		.setColor(config.color)
+		.setColor('username-box', config.color)
+		.setColor('discriminator-box', config.color)
+		.setColor('message-box', config.color)
+		.setColor('border', config.color)
+		.setColor('avatar', config.color)
+		.setBackground(
+			'https://cdn.discordapp.com/attachments/871081165208047716/876821477880660008/Welcome_1.png'
+		)
+		.setMemberCount(member.guild.memberCount);
+	let attachment = new MessageAttachment(
+		await welcomeCard.build(),
+		'welcome.png'
+	);
+	member.guild.channels.cache
+		.get('876828141799239770')
+		.send(member.user.toString(), attachment);
+	//End welcome card
 
-  //Another welcome card
-  let welcomeRole = member.guild.roles.cache.find(role => role.name === 'Member');
-  let mainRanks = member.guild.roles.cache.find(role => role.name === '║--------------Main Roles--------------║');
-  let otherRanks = member.guild.roles.cache.find(role => role.name === '║--------------Other Roles--------------║');
-  let serverGameRanks = member.guild.roles.cache.find(role => role.name === '║----------Server Game Roles----------║');
-  let pingRanks = member.guild.roles.cache.find(role => role.name === '║-------------Pinging roles-------------║');
+	//Another welcome card
+	let welcomeRole = member.guild.roles.cache.find(
+		role => role.name === 'Member'
+	);
+	let mainRanks = member.guild.roles.cache.find(
+		role => role.name === '║--------------Main Roles--------------║'
+	);
+	let otherRanks = member.guild.roles.cache.find(
+		role => role.name === '║--------------Other Roles--------------║'
+	);
+	let serverGameRanks = member.guild.roles.cache.find(
+		role => role.name === '║----------Server Game Roles----------║'
+	);
+	let pingRanks = member.guild.roles.cache.find(
+		role => role.name === '║-------------Pinging roles-------------║'
+	);
 	member.roles.add(welcomeRole);
-  member.roles.add(mainRanks);
+	member.roles.add(mainRanks);
 	member.roles.add(otherRanks);
 	member.roles.add(serverGameRanks);
 	member.roles.add(pingRanks);
-	
-  const embed = new MessageEmbed()
+
+	const embed = new MessageEmbed()
 		.setAuthor(
 			member.displayName,
 			member.user.displayAvatarURL({ dynamic: true })
@@ -114,37 +149,54 @@ client.on("guildMemberAdd", async member => {
 		)
 		.setFooter('Enjoy your time here!')
 		.setColor(config.color);
-	
-  const channel = member.guild.channels.cache.find(ch => ch.name === '👋welcome');
-  // Do nothing if the channel wasn't found on this server
-  if (!channel) return;
-  // Send the message, mentioning the member
-  channel.send(`Hey ${member}`);
-  channel.send(embed);
-  //End another welcome card
+
+	const channel = member.guild.channels.cache.find(
+		ch => ch.name === '👋welcome'
+	);
+	// Do nothing if the channel wasn't found on this server
+	if (!channel) return;
+	// Send the message, mentioning the member
+	channel.send(`Hey ${member}`);
+	channel.send(embed);
+	//End another welcome card
 });
 
-client.on("guildMemberRemove", async member => {
-  if(member.guild.id !== "754252071519256587") return;
-  const welcomeCard = new Leaver()
-    .setUsername(member.user.username)
-    .setDiscriminator(member.user.discriminator)
-    .setAvatar(member.user.displayAvatarURL({format: "png"}))
-    .setColor(config.color)
-    .setColor("username-box", config.color)
-    .setColor("discriminator-box", config.color)
-    .setColor("message-box", config.color)
-    .setColor("border", config.color)
-    .setColor("avatar", config.color)
-    .setBackground("https://cdn.discordapp.com/attachments/871081165208047716/876821477880660008/Welcome_1.png")
-    .setMemberCount(member.guild.memberCount);
-  let attachment = new MessageAttachment(await welcomeCard.build(), "bye.png");
-  member.guild.channels.cache.get("866650203330576384").send(member.user.toString(), attachment);
+client.on('guildMemberRemove', async member => {
+	if (member.guild.id !== '754252071519256587') return;
+	const welcomeCard = new Leaver()
+		.setUsername(member.user.username)
+		.setDiscriminator(member.user.discriminator)
+		.setAvatar(member.user.displayAvatarURL({ format: 'png' }))
+		.setColor(config.color)
+		.setColor('username-box', config.color)
+		.setColor('discriminator-box', config.color)
+		.setColor('message-box', config.color)
+		.setColor('border', config.color)
+		.setColor('avatar', config.color)
+		.setBackground(
+			'https://cdn.discordapp.com/attachments/871081165208047716/876821477880660008/Welcome_1.png'
+		)
+		.setMemberCount(member.guild.memberCount);
+	let attachment = new MessageAttachment(await welcomeCard.build(), 'bye.png');
+	member.guild.channels.cache
+		.get('866650203330576384')
+		.send(member.user.toString(), attachment);
 });
 
-client.on("message", async (message) => {
+client.on('message', async message => {
+	if (!message.content.startsWith(prefix) || message.author.bot) return;
+  
+  /* const randomAmountOfXp = Math.floor(Math.random() * 29) + 1; // Min 1, Max 30
 
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
+ const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomAmountOfXp);
+
+ if (hasLeveledUp) {
+
+   const user = await Levels.fetch(message.author.id, message.guild.id);
+
+   message.channel.send(`${message.author}, congratulations! You have leveled up to **${user.level}**. :tada:`);
+
+ }*/ 
 
 	const args = message.content.slice(prefix.length).split(/ +/);
 	let command = args
@@ -161,22 +213,23 @@ client.on("message", async (message) => {
 	if (command === 'avatar') command = 'av';
 	if (command === 'colour') command = 'color';
 	if (command === 'userinfo') command = 'whois';
-  if (command === '8b') command = '8ball';
-  if (command === 'planememe') command = 'avmeme';
-  if (command === 'aviationmeme') command = 'avmeme';
-  if (command === 'plane') command = 'avmeme';
-  if (command === 'lvl') command = 'level';
-  if (command === 'pogfish') command = 'pog';
-  if (command === 'avatarmerge') command = 'avs';
-  if (command === 'avmerge') command = 'avs';
-  if (command === 'sav') command = 'serveravatar';
-  if (command === 'serverav') command = 'serveravatar';
-  if (command === 'covid') command = 'corona';
-  if (command === 'coinflip') command = 'coin';
- 
+	if (command === '8b') command = '8ball';
+	if (command === 'planememe') command = 'avmeme';
+	if (command === 'aviationmeme') command = 'avmeme';
+	if (command === 'plane') command = 'avmeme';
+	if (command === 'lvl') command = 'level';
+	if (command === 'pogfish') command = 'pog';
+	if (command === 'avatarmerge') command = 'avs';
+	if (command === 'avmerge') command = 'avs';
+	if (command === 'sav') command = 'serveravatar';
+	if (command === 'serverav') command = 'serveravatar';
+	if (command === 'covid') command = 'corona';
+	if (command === 'coinflip') command = 'coin';
+	if (command === 'bal') command = 'balance';
+
 	if (client.commands.has(command)) {
-		client.commands.get(command).execute(message, args);
-  }
+		client.commands.get(command).execute(client, message, args);
+	}
 });
 
 client.login(process.env.DISCORD_TOKEN);

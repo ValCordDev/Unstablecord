@@ -4,7 +4,7 @@ const config = require ("../config.js");
 
 module.exports = {
   name: "ascii",
-  execute: async (message, args) => {
+  execute: async (client, message, args) => {
     let text = args.join(" ");
     if(!text) {
       return message.channel.send(`Please provide text for the ascii conversion!`)

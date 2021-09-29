@@ -5,7 +5,7 @@ const config = require ("../config.js");
 module.exports = {
   name: "translate",
   description: "translate command",
-  execute: async (message, args) => {
+  execute: async (client, message, args) => {
     const txt = args.join(" ")
     translate(txt, { to: 'en'}).then(res => {
       const embed = new MessageEmbed()

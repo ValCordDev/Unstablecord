@@ -4,7 +4,7 @@ const config = require ("../config.js");
 
 module.exports ={
   name: 'advice',
-  execute: async (message, args) => {
+  execute: async (client, message, args) => {
       try {
               const { body } = await snekfetch.get('http://api.adviceslip.com/advice');
               message.channel.send("``" + JSON.parse(body.toString()).slip.advice + "``");

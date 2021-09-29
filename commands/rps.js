@@ -5,7 +5,7 @@ const config = require ("../config.js");
 
 module.exports = {
     name: "rps",
-    execute: async (message, args) => {
+    execute: async (client, message, args) => {
         const embed = new MessageEmbed()
             .setColor(config.color)
             .setDescription("Add a reaction to one of these emojis to play the game!");

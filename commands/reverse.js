@@ -3,7 +3,7 @@ const { Command } = require('discord.js-commando');
 
 module.exports = {
   name:'reverse',
-  execute(message, args){
+  execute(client, message, args){
        var argsString = args.toString();
        var noCommas = argsString.replace(/,/g, " ");
        var splitString = noCommas.split("");

@@ -4,7 +4,7 @@ const config = require ("../config.js");
 
 module.exports= {
   name:"trigger",
-  execute: async (message, args) => {
+  execute: async (client, message, args) => {
     let avatar = message.author.displayAvatarURL({ dynamic: false, format: 'png' });
     let image = await canvacord.Canvas.trigger(avatar);
     let attachment = new MessageAttachment(image, "triggered.gif");

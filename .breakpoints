@@ -3,9 +3,17 @@
     "commands/coin.js": [
       {
         "id": "90beb2ff-e03e-4cc1-88ac-c4f3a61a1475",
-        "line": 27,
-        "version": 167,
-        "index": 860
+        "line": 28,
+        "version": 223,
+        "index": 875
+      }
+    ],
+    "commands/comment.js": [
+      {
+        "id": "be6b69ed-9824-4be7-a924-93a3a99253ba",
+        "line": 24,
+        "version": 75,
+        "index": 1049
       }
     ],
     "config.json": [

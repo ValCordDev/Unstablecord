@@ -5,7 +5,7 @@ const config = require ("../config.js");
 
 module.exports = {
   name: "dog",
-execute: async (message, args) => {
+execute: async (client, message, args) => {
 //command
 superagent.get('https://nekos.life/api/v2/img/woof')
     .end((err, response) => {

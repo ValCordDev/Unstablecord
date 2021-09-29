@@ -6,7 +6,7 @@ module.exports = {
   args: true,
   cooldown: 5,
   botpermission: ["MANAGE_WEBHOOKS"],
-  execute: async (message, args) => {
+  execute: async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_WEBHOOKS")) {
             return message.channel.send(`You Don't Have Permission To Use This Command! Manage webhook`)}
     message.delete();

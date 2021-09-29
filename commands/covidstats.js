@@ -5,7 +5,7 @@ const config = require ("../config.js");
 
 module.exports = {
   name: "covidstats",
-  execute: async (message, args) => {
+  execute: async (client, message, args) => {
         if(!args) return message.say('You Need To Provide A Valid ISO Country Code');
         axios.get(`https://disease.sh/v3/covid-19/countries/${args}`).then(function (res) {
             const result = res.data;

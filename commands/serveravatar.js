@@ -4,7 +4,7 @@ const config = require ("../config.js");
 module.exports = {
   name: "serveravatar",
   description: "Get avatar of the server",
-  execute: async (message, args) => {
+  execute: async (client, message, args) => {
     
     let embed = new discord.MessageEmbed()
     

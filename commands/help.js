@@ -4,7 +4,7 @@ const config = require ("../config.js");
 module.exports = {
   name:'help',
   description: "This command will show The Bot latency",
-  execute(message, args){
+  execute(client, message, args){
     const embed = new MessageEmbed()
       .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
       .setTimestamp(Date.now())

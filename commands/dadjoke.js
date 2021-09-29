@@ -4,7 +4,7 @@ const config = require ("../config.js");
 module.exports = {
   name: "dadjoke",
   description: "dadjoke command",
-  execute: async (message, args) => {
+  execute: async (client, message, args) => {
     GiveMeAJoke.getRandomDadJoke (function(joke) {
       const embed = new MessageEmbed()
       .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))

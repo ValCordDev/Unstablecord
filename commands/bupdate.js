@@ -3,7 +3,7 @@ const config = require ("../config.js");
 
 module.exports ={
   name: 'bupdate',
-  execute(message, args){
+  execute(client, message, args){
     if(!message.member.hasPermission("ADMINISTRATOR")){
       return message.reply("You don't have perms");
     }
@@ -17,6 +17,7 @@ module.exports ={
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
     .setTimestamp(Date.now())
     .setColor(config.color)
+    .setTitle("New Bot Update!")
     .setDescription(messageArgs);
 
     channel.send(embed).then((msg) =>{

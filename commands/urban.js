@@ -5,7 +5,7 @@ const config = require("../config.js")
 module.exports= {
 name: "urban",
 description: "Give information about urban words!",
-execute: async (message, args) => {
+execute: async (client, message, args) => {
         if(!args[0])
         return message.channel.send("Please Enter Something To Search");
 

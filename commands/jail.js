@@ -3,7 +3,7 @@ const config = require ("../config.js");
 
 module.exports = {
   name: "jail",
-  execute: async (message, args) => {
+  execute: async (client, message, args) => {
     
    const Member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
 

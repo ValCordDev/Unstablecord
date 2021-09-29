@@ -4,7 +4,7 @@ const config = require ("../config.js");
 module.exports = {
   name: "howgay",
   description: "howgay command",
-  execute: async (message, args) => {
+  execute: async (client, message, args) => {
     const user = message.mentions.users.first() || message.author;
     let rng = Math.floor(Math.random() * 101);
     

@@ -3,7 +3,7 @@ const config = require ("../config.js");
 
 module.exports = {
   name: 'hi',
-  execute(message, args){
+  execute(client, message, args){
 
     const auth = message.author
     const user = message.mentions.users.first() || message.author

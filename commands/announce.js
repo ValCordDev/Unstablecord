@@ -3,7 +3,7 @@ const config = require ("../config.js");
 
 module.exports ={
   name: 'announce',
-  execute(message, args){
+  execute(client, message, args){
     if(!message.member.hasPermission("ADMINISTRATOR")){
       return message.reply("You don't have perms");
     }

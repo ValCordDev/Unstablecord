@@ -5,7 +5,7 @@ const config = require ("../config.js");
 module.exports = {
   name: "whois",
   description: "Get advance stats of given person or yourself",
-  execute: async (message, args) => {
+  execute: async (client, message, args) => {
 
 
     let user;

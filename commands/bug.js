@@ -3,7 +3,7 @@ const config = require ("../config.js");
 
 module.exports ={
   name: 'bug',
-  execute(message, args){
+  execute(client, message, args){
     const channel = message.guild.channels.cache.find(c => c.name === '🚨bug-reports🚨');
     if(!channel) return message.channel.send('bug channel does not exist!');
 

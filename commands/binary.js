@@ -5,7 +5,7 @@ const config = require ("../config.js");
 module.exports = {
 	name: 'binary',
 	category: 'extra',
-	execute: async (message, args) => {
+	execute: async (client, message, args) => {
 		const url = `https://no-api-key.com/api/v1/binary?text=${args.join('%20')}`;
 
 		let response;

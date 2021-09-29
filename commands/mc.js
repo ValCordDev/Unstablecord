@@ -4,11 +4,11 @@ const config = require ("../config.js");
 
 module.exports = {
     name: "mc",
-    execute: async (message, args) => {
+    execute: async (client, message, args) => {
         let embed1 = new Discord.MessageEmbed()
         .setTitle('Error!')
         .setDescription(`**Required Arguments** \n \`\`\`-mcuser <username> \`\`\``)
-        .setColor('f5f5dc')
+        .setColor(config.color)
 
         if(!args[0]) return message.channel.send(embed1)
 

@@ -1,9 +1,10 @@
 const config = require ("../config.js");
 
+
 module.exports = {
     name: "coin",
     description: "Flips a coin",
-    execute(message, args) {
+    execute(client, message, args) {
         const {MessageEmbed } = require('discord.js')
         function randomint(max) {
             return Math.floor(Math.random() * Math.floor(max))

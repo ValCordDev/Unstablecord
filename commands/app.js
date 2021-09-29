@@ -3,7 +3,7 @@ const {MessageEmbed } = require('discord.js');
 
 module.exports = {
   name:'app',
-  execute(message, args){
+  execute(client, message, args){
     const embed = new MessageEmbed()
       .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))
       .setTimestamp(Date.now())

@@ -4,7 +4,7 @@ const config = require ("../config.js");
 module.exports = {
   name: "slowmode",
   description: "slowmode command",
-  execute: async (message, args) => {
+  execute: async (client, message, args) => {
     if(!message.member.hasPermission("KICK_MEMBERS")){return message.reply("You don't have perms")}
     let time = args[0]
     if(!time) return message.channel.send("Please provide a time in seconds!")

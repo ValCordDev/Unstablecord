@@ -3,7 +3,7 @@ const config = require ("../config.js");
 
 module.exports = {
   name:'pog',
-  execute(message, args){
+  execute(client, message, args){
     const user = message.author;
     const embed = new MessageEmbed()
     .setAuthor(message.author.username, message.author.displayAvatarURL({ dynamic: true }))

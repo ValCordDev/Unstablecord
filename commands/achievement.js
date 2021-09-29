@@ -4,7 +4,7 @@ const config = require ("../config.js");
 module.exports = {
   name: "achievement",
   description: "Gives you an achievment",
-  execute: async (message, args) => {
+  execute: async (client, message, args) => {
     if(!args[0]) {
       return message.reply("Please use #achievement <input>")
     }

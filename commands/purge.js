@@ -3,7 +3,7 @@ const config = require ("../config.js");
 module.exports = {
   name:'purge',
   description: "purges amount of messages",
-  async execute(message, args){
+  execute: async (client, message, args) => {
     if (!args[0]) return message.reply("Please enter the amount of messages you want to purge!");
     if (isNaN(args[0])) return message.reply("Please enter a actual number!");
     if (args[0] > 100) return message.reply("You cannot enter a number over 100!");

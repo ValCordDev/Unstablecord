@@ -2,7 +2,7 @@ const config = require ("../config.js");
 
 module.exports = {
     name: "dm",
-    execute: async (message, args) => {
+    execute: async (client, message, args) => {
         if (!message.member.permissions.has("ADMINISTRATOR"))
             return message.channel.send("You do not have permissions for this command.");
         let user =

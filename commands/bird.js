@@ -4,7 +4,7 @@ const config = require ("../config.js");
 
 module.exports = {
 	name: 'bird',
-	execute: async (message, args) => {
+	execute: async (client, message, args) => {
 		const url = 'https://some-random-api.ml/img/birb';
 		const facts = 'https://some-random-api.ml/facts/birb';
 

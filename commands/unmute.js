@@ -2,7 +2,7 @@ const config = require ("../config.js");
 
 module.exports = {
   name:'unmute',
-  execute(message, args){
+  execute(client, message, args){
     const target = message.mentions.users.first();
     if (target){
       let mainRole = message.guild.roles.cache.find(role => role.name === 'Muted');

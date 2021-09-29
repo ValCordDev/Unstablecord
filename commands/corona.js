@@ -4,7 +4,7 @@ const config = require ("../config.js");
 
 module.exports = {
 	name: 'corona',
-	execute: async (message, args) => {
+	execute: async (client, message, args) => {
 		const baseUrl = 'https://corona.lmao.ninja/v2';
 
 		let url; let response; let

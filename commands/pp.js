@@ -3,7 +3,7 @@ const config = require ("../config.js");
 
 module.exports = {
   name:'pp',
-  execute(message, args){
+  execute(client, message, args){
     const user = message.mentions.users.first() || message.author
   
     const ppSize = ["=", "==", "===", "====", "=====", "======", "=======", "========", "=========", "=========="]

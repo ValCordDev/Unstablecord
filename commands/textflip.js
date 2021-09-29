@@ -6,7 +6,7 @@ const config = require ("../config.js");
 module.exports = {
   name: "textflip",
   description: "textflip command",
-  execute: async (message, args) => {
+  execute: async (client, message, args) => {
    var dictionary = {
     "a": "ɐ",
     "b": "q",

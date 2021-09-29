@@ -5,7 +5,7 @@ const config = require ("../config.js");
 module.exports = {
   name: "meme",
   description: "Meme command",
-  execute: async (message, args) => {
+  execute: async (client, message, args) => {
     const subReddits = ["dankmeme", "meme", "memes"]
     const random = subReddits[Math.floor(Math.random() * subReddits.length)]
 

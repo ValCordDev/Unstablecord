@@ -5,7 +5,7 @@ const config = require ("../config.js");
 module.exports = {
   name: "cat",
 description: "Sends a random image of a cat",
-execute: async (message, args) => {
+execute: async (client, message, args) => {
 //command
 superagent.get('https://nekos.life/api/v2/img/meow')
     .end((err, response) => {

@@ -3,7 +3,7 @@ const config = require ("../config.js");
 
 module.exports = {
   name: "serverinfo",
-execute: async (message, args) => {
+execute: async (client, message, args) => {
 //command
 let servericon = message.guild.iconURL;
 let serverembed = new MessageEmbed()

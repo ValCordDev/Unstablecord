@@ -4,7 +4,7 @@ const config = require ("../config.js");
 
 module.exports = {
   name: "avs",
-    execute: async (message, args) => {
+    execute: async (client, message, args) => {
         if (!message.guild.me.hasPermission('ATTACH_FILES')) return message.channel.send("**Missing Permissions - [ATTACH_FILES]!**");
         if (!args[0]) return message.channel.send("**Which User Would You Like To Be The Base?**");
         if (!args[1]) return message.channel.send("**Which User Would You Like To Put Over The Base?**");

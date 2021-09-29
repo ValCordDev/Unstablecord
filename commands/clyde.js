@@ -7,7 +7,7 @@ const config = require ("../config.js");
 module.exports = {
 
     name: path.parse(__filename).name,
-    execute: async (message, args) => {
+    execute: async (client, message, args) => {
         let msg = args.join(" ");
         if(!msg) msg = "Please provide text!"
         let image = await canvacord.Canvas.clyde(msg);

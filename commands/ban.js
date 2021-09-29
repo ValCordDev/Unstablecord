@@ -4,7 +4,7 @@ const config = require ("../config.js");
 module.exports = {
   name: "ban",
   description: "Ban anyone with one shot whithout knowing anyone xD",
-  execute: async (message, args) => {
+  execute: async (client, message, args) => {
     
     const target = message.mentions.members.first()
     
